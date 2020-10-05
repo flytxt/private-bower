@@ -1,11 +1,12 @@
 body, html {
     height: 100%;
-
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px;
 }
 
 body {
     overflow-y: scroll;
+    background-color: #f0fafa;
 }
 
 #wrap {
@@ -49,18 +50,33 @@ footer h4 a {
 
 #logo {
     position: absolute;
-    height: 200px;
-    width: 200px;
+    height: 8em;
+    width: 11em;
+    left: 1em;
+    top: 1.5em;
 }
 
-.btn-warning {
-    background-color: #1695A3;
-    border-color: #16818f;
+.btn-primary, .btn-warning {
+    background-color: #4E7DC4 !important;
+    border-color: #4E7DC4 !important;
 }
 
-.btn-warning:hover {
-    background-color: #16b3c1;
-    border-color: #1692a0;
+.btn-primary:hover, .btn-warning:hover {
+    background-color: #3564ac !important;
+    border-color: #3564ac !important;
+}
+
+.bg-danger {
+    background-color: #F44231 !important;
+    color: white;
+}
+
+.bg-info {
+    background-color: transparent !important;
+}
+
+.bg-warning {
+    background-color: #F8A02B !important;
 }
 
 .bg-gray {
@@ -77,9 +93,13 @@ footer h4 a {
 }
 
 .jumbotron {
-    background-color: #F4C53B;
+    background-color: #000000;
     padding-top: 30px;
     padding-bottom: 15px;
+    z-index: 2;
+    position: sticky;
+    top: 0vw;
+    width: 100%;
 }
 
 .jumbotron h1 {
@@ -91,17 +111,22 @@ footer h4 a {
 
     text-shadow: 0 4px 0 rgba(0, 0, 0, .1);
 
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: bold;
 
     margin-top: 10px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 3px;
 }
 
 .glyphicon-search {
     position: absolute;
 
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 6px;
     color: #444;
 }
 
@@ -186,7 +211,7 @@ footer h4 a {
 
     border: 3px solid #777;
     border-radius: 5px;
-    background-color: #F4C53B;
+    background-color: #000000;
 
     padding: 20px;
 }

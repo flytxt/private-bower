@@ -2,12 +2,12 @@
 <html ng-app="PrivateBower">
 <head lang="en">
     <meta charset="UTF-8">
+    <link rel="icon" sizes="192x192" href="images/Flytxt_Favicon.png">
     <title>Private Bower Registry</title>
 
     <link rel="stylesheet" href="vendor/bootstrap/dist/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/animate/animate.min.css">
-    <link href="vendor/source-sans-pro/source-sans-pro.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="private-bower.css">
 
     <script src="vendor/angular/angular.min.js"></script>
@@ -27,20 +27,13 @@
 <body ng-controller="mainController as mainController">
     <div id="wrap">
         <div class="jumbotron">
-            <img id="logo" class="hidden-xs animated fadeInLeft" src="logo.png">
-
-            <a class="hidden-xs animated fadeInRight" href="https://github.com/Hacklone/private-bower">
-                <img style="position: absolute; top: 0; right: 0; border: 0; cursor: pointer;"
-                     src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67"
-                     alt="Fork me on GitHub">
-            </a>
-
+            <img id="logo" class="hidden-xs animated fadeInLeft" src="images/flytxt-logo.png">
             <div class="container text-center animated fadeInDown">
-                <h1>private-bower</h1>
+                <h1>private<span style="color: #F8A02B;">-</span>bower</h1>
                 <div style="position: relative;">
                     <span class="glyphicon glyphicon-search keep-right" style="position: absolute;"></span>
                     <input ng-model="packageFilter" class="form-control search" placeholder="Search package">
-                    <button class="btn btn-primary" ng-click="mainController.addPackageButtonClick()" style="position: relative; top: -2px;">
+                    <button title="Add or update package" class="btn btn-primary" ng-click="mainController.addPackageButtonClick()" style="position: relative; top: -2px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
                 </div>
@@ -56,69 +49,71 @@
             </div>
         </div>
         <div class="container animated fadeInUp">
-            <div ng-if="mainController.error" class="bg-danger info-box">
-                <span class="glyphicon glyphicon-remove keep-right"></span>
-                Private Bower service is down
-            </div>
-            <div ng-if="mainController.packages && !mainController.packages.length" class="bg-warning info-box">
-                <span class="glyphicon glyphicon-info-sign keep-right"></span>
-                No private packages registered
-                <a href="http://github.com/Hacklone/private-bower/blob/master/README.md" target="_blank">
-                    read docs about how to register packages.
-                </a>
-            </div>
-            <div ng-if="!mainController.packages" class="bg-info info-box">
-                <span class="glyphicon glyphicon-info-sign keep-right"></span>
-                Loading Packages...
-            </div>
-            <div ng-if="mainController.packages && mainController.packages.length">
-                <div ng-repeat="package in mainController.packages | filter:{ name: packageFilter }" class="package container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 col-xs-6">
-                            <h3 style="line-height: 1.5em; cursor: pointer;" class="text-primary" ng-click="mainController.togglePackageDetailsOpened(package)">
-                                {{ package.name }}
-                                &nbsp;
-                                <a ng-href="{{ package.siteUrl }}" target="_blank"
-                                   title="Open repository's website"
-                                   style="font-size: 15px">
-                                    <i class="fa fa-external-link"></i>
-                                </a>
-                            </h3>
+            <div class="packages">
+                <div ng-if="mainController.error" class="bg-danger info-box">
+                    <span class="glyphicon glyphicon-remove keep-right"></span>
+                    Private Bower service is down
+                </div>
+                <div ng-if="mainController.packages && !mainController.packages.length" class="bg-warning info-box">
+                    <span class="glyphicon glyphicon-info-sign keep-right"></span>
+                    No private packages registered
+                    <a href="http://github.com/Hacklone/private-bower/blob/master/README.md" target="_blank">
+                        read docs about how to register packages.
+                    </a>
+                </div>
+                <div ng-if="!mainController.packages" class="bg-info info-box">
+                    <span class="glyphicon glyphicon-info-sign keep-right" style="color: #F8A02B;"></span>
+                    Loading Packages...
+                </div>
+                <div ng-if="mainController.packages && mainController.packages.length">
+                    <div ng-repeat="package in mainController.packages | filter:{ name: packageFilter }" class="package container-fluid">
+                        <div class="row">
+                            <div class="col-md-6 col-xs-6">
+                                <h3 style="line-height: 1.5em; cursor: pointer;" class="text-primary" ng-click="mainController.togglePackageDetailsOpened(package)">
+                                    {{ package.name }}
+                                    &nbsp;
+                                    <a ng-href="{{ package.siteUrl }}" target="_blank"
+                                       title="Open repository's website"
+                                       style="font-size: 15px">
+                                        <i class="fa fa-external-link"></i>
+                                    </a>
+                                </h3>
+                            </div>
+                            <div class="col-md-2 col-xs-2 text-right" style="line-height: 2.5em">
+                                hits: {{ package.hits }}
+                            </div>
+                            <div class="col-md-4 col-xs-4 text-right">
+                                <button class="btn btn-default"
+                                        ng-click="mainController.removePackageButtonClick(package.name)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-md-2 col-xs-2 text-right" style="line-height: 2.5em">
-                            hits: {{ package.hits }}
-                        </div>
-                        <div class="col-md-4 col-xs-4 text-right">
-                            <button class="btn btn-default"
-                                    ng-click="mainController.removePackageButtonClick(package.name)">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div ng-if="package.detailsOpened" class="row" style="margin-top: 20px">
-                        <div ng-if="!package.details" class="text-center">
-                            <span ng-if="!package.detailsError" class="text-info">
-                                Loading package details...
-                            </span>
-                            <span ng-if="package.detailsError" class="text-danger">
-                                Failed to load package details! (Your private-bower server needs read access to this Git repository and the git repository must contain a bower.json file!)
-                            </span>
-                        </div>
-                        <div ng-if="package.details" class="details">
-                            <table class="table table-condensed table-bordered" style="margin-bottom: 0;">
-                                <tr>
-                                    <td><strong>Url</strong></td>
-                                    <td>{{ package.url }}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Details</strong></td>
-                                    <td>
-                                        <pre>
-                                            {{ package.details | json }}
-                                        </pre>
-                                    </td>
-                                </tr>
-                            </table>
+                        <div ng-if="package.detailsOpened" class="row" style="margin-top: 20px">
+                            <div ng-if="!package.details" class="text-center">
+                                <span ng-if="!package.detailsError" class="text-info">
+                                    Loading package details...
+                                </span>
+                                <span ng-if="package.detailsError" class="text-danger">
+                                    Failed to load package details! (Your private-bower server needs read access to this Git repository and the git repository must contain a bower.json file!)
+                                </span>
+                            </div>
+                            <div ng-if="package.details" class="details">
+                                <table class="table table-condensed table-bordered" style="margin-bottom: 0;">
+                                    <tr>
+                                        <td><strong>Url</strong></td>
+                                        <td>{{ package.url }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Details</strong></td>
+                                        <td>
+                                            <pre>
+                                                {{ package.details | json }}
+                                            </pre>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -126,7 +121,7 @@
         </div>
         <dialog is-opened="mainController.addPackageDialogOpened">
             <div>
-                <h2>Add package</h2>
+                <h2>Add/ Update package</h2>
                 <div class="form-group">
                     <input class="form-control" placeholder="Package Name" ng-model="packageName">
                 </div>
@@ -138,7 +133,7 @@
                         Cancel
                     </button>
                     <button ng-click="mainController.addPackage(packageName, packageUrl)" class="btn btn-primary">
-                        Add
+                        Confirm
                     </button>
                 </div>
                 <p ng-if="mainController.addPackageError" class="bg-danger">
@@ -184,25 +179,5 @@
             </dialog>
         </div>
     </div>
-    <footer>
-        <h2>Created by</h2>
-
-        <div class="bg-gray">
-            <div class="author">
-                <div>
-                    <a href="https://github.com/Hacklone" target="_blank" title="LinkedIn: Barna Tóth">
-                        <img src="https://avatars1.githubusercontent.com/u/2377220?s=460" class="img-circle" alt="BarnaToth">
-                    </a>
-                </div>
-                <div>
-                    <h4>
-                        <a href="https://github.com/Hacklone" analytics-category="Footer-Team" analytics-label="Barna-Link" analytics-on="click" target="_blank" title="LinkedIn: Barna Tóth">
-                            Barna Tóth
-                        </a>
-                    </h4>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>
