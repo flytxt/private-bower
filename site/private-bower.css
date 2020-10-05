@@ -5,7 +5,6 @@ body, html {
 }
 
 body {
-    overflow-y: scroll;
     background-color: #f0fafa;
 }
 
@@ -53,7 +52,23 @@ footer h4 a {
     height: 8em;
     width: 11em;
     left: 1em;
-    top: 1.5em;
+    top: 1.25em;
+}
+
+.delete-icon, .delete-icon:hover {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    background-color: transparent;
+}
+
+.delete-icon:hover {
+    color: #F8A02B;
+    transition: color 0.5s ease;
+}
+
+.btn {
+    transition: all 0.5s ease;
 }
 
 .btn-primary, .btn-warning {
@@ -67,20 +82,22 @@ footer h4 a {
 }
 
 .bg-danger {
-    background-color: #F44231 !important;
-    color: white;
+    background-color: transparent;
+    border: 1px solid #F44231;
+    color: #F44231;
 }
 
-.bg-info {
-    background-color: transparent !important;
-}
-
-.bg-warning {
-    background-color: #F8A02B !important;
+.bg-warning, .bg-info {
+    background-color: transparent;
+    border: 1px solid #F8A02B;
 }
 
 .bg-gray {
     background-color: #777;
+}
+
+.glyphicon-info-sign {
+    color: #F8A02B;
 }
 
 .info-box {
@@ -106,7 +123,7 @@ footer h4 a {
     margin-bottom: 20px;
 }
 
-.jumbotron h1, h2 {
+.jumbotron h1, h2, h4 {
     color: #ffffff;
 
     text-shadow: 0 4px 0 rgba(0, 0, 0, .1);
@@ -153,8 +170,9 @@ footer h4 a {
     margin: 10px auto;
 
     border-radius: 5px;
-    padding: 20px;
+    padding: 0.5em 2em;
     box-sizing: border-box;
+    box-shadow: 2px 2px #e9e9eb;
 
     background-color: #f7f7f9;
     border: 1px solid #e1e1e8;
@@ -214,4 +232,38 @@ footer h4 a {
     background-color: #000000;
 
     padding: 20px;
+}
+
+.text-primary {
+    color: #4E7DC4;
+    line-height: 1.5em;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.text-primary:hover {
+    color:  #3564ac;
+    transition: color 0.5s ease;
+}
+
+.text-info {
+    color: #7F7F7F;
+}
+
+.text-danger {
+    color: #F44231;
+}
+
+@media all and (max-width: 600px) {
+    pre {
+        width: 70vw;
+        height: 40vw;
+    }
+}
+
+@media all and (min-width: 600px) {
+    pre {
+        width: 48vw;
+        height: 20vw;
+    }
 }
