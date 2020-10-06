@@ -67,14 +67,17 @@
                 </div>
                 <div ng-if="mainController.packages && mainController.packages.length">
                     <div ng-repeat="package in mainController.packages | filter:{ name: packageFilter }" class="package container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 col-xs-6">
-                                <h3 class="text-primary" ng-click="mainController.togglePackageDetailsOpened(package)">
-                                    {{ package.name }}
+                        <div class="header-row row">
+                            <div class="col-md-11 col-xs-11" ng-click="mainController.togglePackageDetailsOpened(package)">
+                                <h3 class="text-primary">
+                                    <span ng-if="!package.detailsOpened" class="glyphicon glyphicon-chevron-down"></span>
+                                    <span ng-if="package.detailsOpened" class="glyphicon glyphicon-chevron-up"></span>
+                                    <span style="margin-left: 1em;">{{ package.name }}</span>
                                 </h3>
                             </div>
-                            <div class="col-md-6 col-xs-6 text-right">
-                                <button class="btn btn-default delete-icon"
+                            <div class="col-md-1 col-xs-1 text-right">
+                                <button title="Delete package" 
+                                        class="btn btn-default delete-icon"
                                         ng-click="mainController.removePackageButtonClick(package.name)">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
@@ -90,13 +93,13 @@
                                 </span>
                             </div>
                             <div ng-if="package.details" class="details">
-                                <table class="table table-condensed table-bordered" style="margin-bottom: 0;">
+                                <table class="table table-condensed" style="margin-bottom: 0;">
                                     <tr>
-                                        <td><strong>Url</strong></td>
+                                        <td><strong><span style="color: #777">Url</span></strong></td>
                                         <td>{{ package.url }}</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Details</strong></td>
+                                        <td><strong><span style="color: #777">Details</span></strong></td>
                                         <td>
                                             <pre>
                                                 {{ package.details | json }}

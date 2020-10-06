@@ -28,11 +28,23 @@ angular.module('PrivateBower')
         function _getPackages() {
             $http.get('packages')
                 .success(function(packages) {
+                    let compare = function(v1, v2) {
+                        const name1 = v1.name.toUpperCase();
+                        const name2 = v2.name.toUpperCase();
+                        let comparison = 0;
+                        if (name1 > name2) {
+                          comparison = 1;
+                        } else if (name1 < name2) {
+                          comparison = -1;
+                        }
+                        return comparison;
+                    };
                     self.packages = packages.map(function(pack) {
                         pack.siteUrl = pack.url.replace('git://', 'https://');
 
                         return pack;
-                    });
+                    }).sort(compare);
+
                 })
                 .error(function(error) {
                     self.error = true;

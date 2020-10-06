@@ -56,11 +56,12 @@ footer h4 a {
 }
 
 .delete-icon, .delete-icon:hover {
+    outline: none !important;
+    background: transparent !important;
     padding-left: 0;
     padding-right: 0;
     border: none;
     margin-top: 2px;
-    background-color: transparent;
     color: #f0fafa;
     transition: color 0.5s ease;
 }
@@ -257,12 +258,25 @@ footer h4 a {
 }
 
 td {
+    border: none !important;
     color: #f0fafa;
     padding: 8px 5px 2px 5px !important;
 }
 
 .label {
     color: #4E7DC4;
+}
+
+.header-row {
+    margin-left: -24px;
+    margin-right: -24px;
+}
+
+.glyphicon-chevron-up, .glyphicon-chevron-down {
+    position: absolute;
+    transition: all ease;
+    font-size: 10pt;
+    top: 12px;
 }
 
 @media all and (max-width: 600px) {
