@@ -169,7 +169,7 @@ footer h4 a {
 }
 
 .package {
-    max-width: 750px;
+    max-width: 95%;
     margin: 10px auto;
 
     border-radius: 5px;
@@ -228,7 +228,7 @@ footer h4 a {
 
     min-width: 400px;
 
-    margin-top: 10%;
+    margin-top: 33vh;
 
     border: 3px solid #777;
     border-radius: 5px;
@@ -279,18 +279,24 @@ td {
     top: 12px;
 }
 
+.form-control {
+    font-size: 16px;
+}
+
 @media all and (max-width: 600px) {
     pre {
         background-color: #f0fafa;
-        width: 70vw;
-        height: 40vw;
+        width: 68%;
+        height: auto;
+        max-height: 40vw;
     }
 }
 
 @media all and (min-width: 600px) {
     pre {
         background-color: #f0fafa;
-        width: 48vw;
-        height: 20vw;
+        width: 100%;
+        height: auto;
+        max-height: 20vw;
     }
 }
