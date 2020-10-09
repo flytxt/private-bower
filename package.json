@@ -1,7 +1,7 @@
 {
   "name": "private-bower",
-  "version": "1.1.9",
-  "author": "Hacklone <toakak@gmail.com>",
+  "version": "v1.0.0-flytxt",
+  "author": "Archana R <archana.radhakrishnan@flytxt.com>",
   "description": "A simple private bower registry",
   "main": "./bin/private-bower",
   "repository": {
