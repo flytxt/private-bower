@@ -113,7 +113,7 @@ footer h4 a {
 }
 
 .jumbotron {
-    background-color: #000000;
+    background-color: #053750;
     padding-top: 30px;
     padding-bottom: 15px;
     z-index: 2;
@@ -177,7 +177,7 @@ footer h4 a {
     box-sizing: border-box;
     box-shadow: 2px 2px #e9e9eb;
 
-    background-color: #000000;
+    background-color: #053750;
     border: 1px solid #e1e1e8;
     
     -webkit-transition: all 2s;
@@ -232,7 +232,7 @@ footer h4 a {
 
     border: 3px solid #777;
     border-radius: 5px;
-    background-color: #000000;
+    background-color: #053750;
 
     padding: 20px;
 }
