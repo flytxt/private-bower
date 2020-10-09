@@ -92,7 +92,7 @@ footer h4 a {
 
 .bg-warning, .bg-info {
     background-color: transparent;
-    border: 1px solid #F8A02B;
+    border: 1px solid #EA6722;
 }
 
 .bg-gray {
@@ -100,7 +100,7 @@ footer h4 a {
 }
 
 .glyphicon-info-sign {
-    color: #F8A02B;
+    color: #EA6722;
 }
 
 .info-box {
