@@ -39,10 +39,10 @@
                 </div>
                 <div class="keep-top">
                     <a href="http://hacklone.github.io/private-bower"
-                       target="_blank" class="btn btn-default">
+                       target="_blank" class="btn btn-default btn-style">
                         Docs
                     </a>
-                    <a href="http://bower.io/search/" target="_blank" class="btn btn-warning">
+                    <a href="http://bower.io/search/" target="_blank" class="btn btn-warning btn-style">
                         Public Packages
                     </a>
                 </div>
@@ -115,7 +115,7 @@
         </div>
         <dialog is-opened="mainController.addPackageDialogOpened">
             <div>
-                <h4>Add/ Update package</h4>
+                <h4>Add / Update package</h4>
                 <div class="form-group">
                     <input class="form-control" placeholder="Package Name" ng-model="packageName">
                 </div>
@@ -123,14 +123,14 @@
                     <input class="form-control" placeholder="Package url" ng-model="packageUrl">
                 </div>
                 <div class="form-group">
-                    <button ng-click="mainController.cancelAddPackageClick()" class="btn btn-default">
+                    <button ng-click="mainController.cancelAddPackageClick()" class="btn btn-default btn-style">
                         Cancel
                     </button>
-                    <button ng-click="mainController.addPackage(packageName, packageUrl)" class="btn btn-primary">
+                    <button ng-click="mainController.addPackage(packageName, packageUrl)" ng-disabled="mainController.validateDetails(packageName, packageUrl)" class="btn btn-primary btn-style">
                         Confirm
                     </button>
                 </div>
-                <p ng-if="mainController.addPackageError" class="bg-danger">
+                <p ng-if="mainController.addPackageError" style="border: 1px solid #f0fafa;" class="bg-danger info-box">
                     {{ mainController.addPackageError }}
                 </p>
             </div>
@@ -139,34 +139,34 @@
             <div>
                 <h4>Are you sure you want to delete "{{ mainController.packageToRemove }}"?</h4>
                 <div class="form-group keep-top">
-                    <button ng-click="mainController.cancelRemovePackageClick()" class="btn btn-default">
+                    <button ng-click="mainController.cancelRemovePackageClick()" class="btn btn-default btn-style">
                         Cancel
                     </button>
-                    <button ng-click="mainController.removePackage(mainController.packageToRemove)" class="btn btn-danger">
+                    <button ng-click="mainController.removePackage(mainController.packageToRemove)" class="btn btn-danger btn-style">
                         Continue
                     </button>
                 </div>
-                <p ng-if="mainController.removePackageError" class="bg-danger">
+                <p ng-if="mainController.removePackageError" style="border: 1px solid #f0fafa;" class="bg-danger info-box">
                     {{ mainController.removePackageError }}
                 </p>
             </div>
         </dialog>
         <div ng-controller="authenticationController as authenticationController">
-            <dialog is-opened="authenticationController.authenticationDialogOpened">
+            <dialog class="token" is-opened="authenticationController.authenticationDialogOpened">
                 <div>
-                    <h4>You must authenticate</h4>
+                    <h4>Please enter your authentication token</h4>
                     <div class="form-group">
                     <input class="form-control" ng-model="authenticationToken" placeholder="Authentication token">
                     </div>
                     <div class="form-group">
-                        <button ng-click="authenticationController.cancelAuthentication()" class="btn btn-default">
+                        <button ng-click="authenticationController.cancelAuthentication()" class="btn btn-default btn-style">
                             Cancel
                         </button>
-                        <button ng-click="authenticationController.authenticate(authenticationToken)" class="btn btn-primary">
+                        <button ng-click="authenticationController.authenticate(authenticationToken)"ng-disabled="mainController.validateDetails(authenticationToken)" class="btn btn-primary btn-style">
                             Continue
                         </button>
                     </div>
-                    <p ng-if="authenticationController.error" class="bg-danger">
+                    <p ng-if="authenticationController.error" style="border: 1px solid #f0fafa;" class="bg-danger info-box">
                         {{ authenticationController.error }}
                     </p>
                 </div>

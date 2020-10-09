@@ -169,7 +169,7 @@ footer h4 a {
 }
 
 .package {
-    max-width: 95%;
+    max-width: 85vw;
     margin: 10px auto;
 
     border-radius: 5px;
@@ -234,7 +234,11 @@ footer h4 a {
     border-radius: 5px;
     background-color: #000000;
 
-    padding: 8px;
+    padding: 20px;
+}
+
+.token .dimmer .inner {
+    margin-top: 37vh;
 }
 
 .text-primary {
@@ -281,18 +285,24 @@ td {
 
 .form-control {
     font-size: 16px;
+    padding-top: 8px;
 }
 
-@media all and (max-width: 600px) {
+.btn-style {
+    font-size: 15px !important;
+    padding: 9px 12px 6px 12px !important;
+}
+
+@media all and (max-width: 900px) {
     pre {
         background-color: #f0fafa;
-        width: 68%;
+        width: 65vw;
         height: auto;
         max-height: 40vw;
     }
 }
 
-@media all and (min-width: 600px) {
+@media all and (min-width: 900px) {
     pre {
         background-color: #f0fafa;
         width: 100%;

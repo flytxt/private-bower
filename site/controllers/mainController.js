@@ -9,6 +9,7 @@ angular.module('PrivateBower')
             addPackage: _addPackage,
             addPackageButtonClick: _addPackageButtonClick,
             cancelAddPackageClick: _cancelAddPackageClick,
+            validateDetails: _validateDetails,
 
             packageToRemove: null,
             removePackageError: null,
@@ -51,7 +52,7 @@ angular.module('PrivateBower')
                 });
         }
 
-        function _addPackageButtonClick() {
+        function _addPackageButtonClick(...args) {
             self.addPackageDialogOpened = true;
         }
 
@@ -112,5 +113,15 @@ angular.module('PrivateBower')
                         bowerPackage.detailsError = true;
                     })
             }
+        }
+
+        function _validateDetails(...args) {
+            let enableButton = true;
+            args.forEach((arg) => {
+               if (!arg) {
+                       enableButton = false;
+               }
+            });
+            return !enableButton;
         }
     });
