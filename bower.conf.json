@@ -14,8 +14,8 @@
         "blacklist": []
     },
     "authentication": {
-        "enabled": false,
-        "key": "password"
+        "enabled": true,
+        "key": "flytxt"
     },
     "repositoryCache": {
         "cachePrivate": false,

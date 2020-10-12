@@ -16,6 +16,16 @@ body {
     padding-bottom: 60px;
 }
 
+.info {
+    position: fixed;
+    top: -3vh;
+    right: -6vw;
+}
+
+.glyphicon-question-sign {
+    color: #3b94bf;
+}
+
 footer {
     position: relative;
     bottom: 0;
@@ -49,10 +59,10 @@ footer h4 a {
 
 #logo {
     position: absolute;
-    height: 8em;
+    height: 7em;
     width: 11em;
     left: 1em;
-    top: 1.25em;
+    top: 0.15em;
 }
 
 .delete-icon, .delete-icon:hover {
@@ -120,6 +130,8 @@ footer h4 a {
     position: sticky;
     top: 0vw;
     width: 100%;
+    margin-bottom: 0.25em;
+    box-shadow: 0 0px 12px 0px #777;
 }
 
 .jumbotron h1 {
@@ -254,7 +266,7 @@ footer h4 a {
 }
 
 .text-info {
-    color: #7F7F7F;
+    color: #3b94bf;
 }
 
 .text-danger {

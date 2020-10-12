@@ -29,22 +29,17 @@
         <div class="jumbotron">
             <img id="logo" class="hidden-xs animated fadeInLeft" src="images/flytxt-logo.png">
             <div class="container text-center animated fadeInDown">
-                <h1>private<span style="color: #EA6722;">-</span>bower</h1>
-                <div style="position: relative;">
+                <h1 style="font-size: 53px; margin-top: 0;">private<span style="color: #EA6722;">-</span>bower</h1>
+                <a href="http://hacklone.github.io/private-bower"
+                    target="_blank" class="info">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                </a>
+                <div style="position: relative; margin-bottom: 1em;">
                     <span class="glyphicon glyphicon-search keep-right" style="position: absolute;"></span>
                     <input ng-model="packageFilter" class="form-control search" placeholder="Search package">
                     <button title="Add or update package" class="btn btn-primary" ng-click="mainController.addPackageButtonClick()" style="position: relative; top: -2px;">
                         <span class="glyphicon glyphicon-plus"></span>
                     </button>
-                </div>
-                <div class="keep-top">
-                    <a href="http://hacklone.github.io/private-bower"
-                       target="_blank" class="btn btn-default btn-style">
-                        Docs
-                    </a>
-                    <a href="http://bower.io/search/" target="_blank" class="btn btn-warning btn-style">
-                        Public Packages
-                    </a>
                 </div>
             </div>
         </div>
@@ -95,11 +90,11 @@
                             <div ng-if="package.details" class="details">
                                 <table class="table table-condensed" style="margin-bottom: 0;">
                                     <tr>
-                                        <td><strong><span style="color: #777">Url</span></strong></td>
+                                        <td><strong><span style="color: #3b94bf;">URL</span></strong></td>
                                         <td><span style="font-size: 16px;" class="pkg-url">{{ package.url }}</span></td>
                                     </tr>
                                     <tr>
-                                        <td><strong><span style="color: #777">Details</span></strong></td>
+                                        <td><strong><span style="color: #3b94bf;">Details</span></strong></td>
                                         <td>
                                             <pre>
                                                 {{ package.details | json }}
@@ -120,7 +115,7 @@
                     <input class="form-control" placeholder="Package Name" ng-model="packageName">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" placeholder="Package url" ng-model="packageUrl">
+                    <input class="form-control" placeholder="Package URL" ng-model="packageUrl">
                 </div>
                 <div class="form-group">
                     <button ng-click="mainController.cancelAddPackageClick()" class="btn btn-default btn-style">
