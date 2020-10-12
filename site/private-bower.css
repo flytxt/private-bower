@@ -17,9 +17,9 @@ body {
 }
 
 .info {
-    position: fixed;
-    top: -3vh;
-    right: -6vw;
+    position: absolute;
+    top: 2vh;
+    right: 1.5vw;
 }
 
 .glyphicon-question-sign {
@@ -62,7 +62,7 @@ footer h4 a {
     height: 7em;
     width: 11em;
     left: 1em;
-    top: 0.15em;
+    top: 0em;
 }
 
 .delete-icon, .delete-icon:hover {
@@ -131,7 +131,7 @@ footer h4 a {
     top: 0vw;
     width: 100%;
     margin-bottom: 0.25em;
-    box-shadow: 0 0px 12px 0px #777;
+    box-shadow: 0 0px 5px 0px #161616;
 }
 
 .jumbotron h1 {
