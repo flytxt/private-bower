@@ -15,7 +15,7 @@
     },
     "authentication": {
         "enabled": false,
-        "key": "password"
+        "key": "flytxt"
     },
     "repositoryCache": {
         "cachePrivate": false,
